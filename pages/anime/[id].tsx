@@ -3,12 +3,17 @@ import { Heading } from '@chakra-ui/react'
 import { SingleAnime } from '../../utils/types'
 
 interface AnimeProps {
-  data: { data: SingleAnime }
+  anime: { data: SingleAnime }
 }
 
 const Anime: NextPage<AnimeProps> = ({ anime }) => {
-  console.log(anime)
-  return <div>Single Anime Page</div>
+  const { data } = anime
+  return (
+    <div>
+      Single Anime Page
+      <Heading>{data.title}</Heading>
+    </div>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
