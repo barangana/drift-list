@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { Box, Container, Heading } from '@chakra-ui/react'
+import { Container, Flex, Heading, VStack } from '@chakra-ui/react'
 import { SingleAnime } from '../../utils/types'
 import Image from 'next/image'
 
@@ -9,28 +9,38 @@ interface AnimeProps {
 
 const Anime: NextPage<AnimeProps> = ({ anime }) => {
   const { data } = anime
-  // console.log(data)
   console.log(data.aired.string)
   return (
-    <Container>
-      <Box>
-        <Heading>{data.title}</Heading>
-        <Image
-          src={data.images.jpg.image_url}
-          alt={data.title}
-          width={200}
-          height={200}
-        />
-        <p>Synopsis: {data.synopsis}</p>
-        <div>
-          Genres:
-          {data.genres.map((genre) => (
-            <div key={genre.mal_id}>{genre.name}</div>
-          ))}
-        </div>
-        <p>Aired: {data.aired.string}</p>
-        <p>Episodes: {data.episodes}</p>
-      </Box>
+    <Container maxW='container.xl' p={0}>
+      <Flex>
+        <VStack>
+          <Image
+            src={data.images.jpg.image_url}
+            alt={data.title}
+            height={300}
+            width={225}
+          />
+        </VStack>
+        <VStack
+          w='full'
+          h='full'
+          p={10}
+          spacing={10}
+          alignItems='flex-start'
+          bg='gray.50'
+        >
+          <Heading>{data.title}</Heading>
+          <p>Synopsis: {data.synopsis}</p>
+          <div>
+            Genres:
+            {data.genres.map((genre) => (
+              <div key={genre.mal_id}>{genre.name}</div>
+            ))}
+          </div>
+          <p>Aired: {data.aired.string}</p>
+          <p>Episodes: {data.episodes}</p>
+        </VStack>
+      </Flex>
     </Container>
   )
 }
