@@ -7,6 +7,6 @@ const nextConfig = {
 module.exports = {
   nextConfig,
   images: {
-    domains: ['cdn.myanimelist.net'],
+    domains: ['cdn.myanimelist.net', 'img.youtube.com'],
   },
 }

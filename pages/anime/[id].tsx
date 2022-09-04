@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { Heading } from '@chakra-ui/react'
+import { Box, Container, Heading } from '@chakra-ui/react'
 import { SingleAnime } from '../../utils/types'
+import Image from 'next/image'
 
 interface AnimeProps {
   anime: { data: SingleAnime }
@@ -8,11 +9,29 @@ interface AnimeProps {
 
 const Anime: NextPage<AnimeProps> = ({ anime }) => {
   const { data } = anime
+  // console.log(data)
+  console.log(data.aired.string)
   return (
-    <div>
-      Single Anime Page
-      <Heading>{data.title}</Heading>
-    </div>
+    <Container>
+      <Box>
+        <Heading>{data.title}</Heading>
+        <Image
+          src={data.images.jpg.image_url}
+          alt={data.title}
+          width={200}
+          height={200}
+        />
+        <p>Synopsis: {data.synopsis}</p>
+        <div>
+          Genres:
+          {data.genres.map((genre) => (
+            <div key={genre.mal_id}>{genre.name}</div>
+          ))}
+        </div>
+        <p>Aired: {data.aired.string}</p>
+        <p>Episodes: {data.episodes}</p>
+      </Box>
+    </Container>
   )
 }
 
