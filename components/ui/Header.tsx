@@ -1,14 +1,30 @@
 import React from 'react'
 import NextLink from 'next/link'
+import { Box, Link, Stack } from '@chakra-ui/react'
 
-//TODO: Fix bug when on 'anime/top-animes', the link can send user to 'anime/anime/top-animes'
+interface ItemLinkProps {
+  href: string
+  children: React.ReactNode
+}
+
+const ItemLink: React.FC<ItemLinkProps> = ({ href, children }) => {
+  return (
+    <NextLink href={href} passHref>
+      <Link p={2} color='white'>
+        {children}
+      </Link>
+    </NextLink>
+  )
+}
+
 export const Header: React.FC = () => {
   return (
-    <div>
-      <NextLink href='/' passHref>
-        Home
-      </NextLink>
-      <NextLink href='anime/top-animes'>Top Animes</NextLink>
-    </div>
+    <Box w='100%' as='nav' bg='black.50'>
+      <Stack direction={{ base: 'column', md: 'row' }}>
+        <ItemLink href='/'>Home</ItemLink>
+        <ItemLink href='/anime/top-animes'>Top Animes</ItemLink>
+        <ItemLink href='/manga/top-mangas'>Top Mangas</ItemLink>
+      </Stack>
+    </Box>
   )
 }
