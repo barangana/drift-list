@@ -9,7 +9,6 @@ interface AnimeProps {
 
 const Anime: NextPage<AnimeProps> = ({ anime }) => {
   const { data } = anime
-  console.log(data.aired.string)
   return (
     <Container maxW='container.xl' p={0}>
       <Flex>

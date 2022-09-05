@@ -9,7 +9,6 @@ interface TopAnimesProps {
 
 const TopAnimes: NextPage<TopAnimesProps> = ({ tops }) => {
   const { data } = tops
-  console.log(data[0].images.jpg.image_url)
   return (
     <div>
       <AllLists data={data} />
