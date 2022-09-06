@@ -1,5 +1,12 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { Container, Flex, Heading, VStack } from '@chakra-ui/react'
+import {
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  VStack,
+} from '@chakra-ui/react'
 import { SingleAnime } from '../../utils/types'
 import Image from 'next/image'
 
@@ -11,35 +18,37 @@ const Anime: NextPage<AnimeProps> = ({ anime }) => {
   const { data } = anime
   return (
     <Container maxW='container.xl' p={0}>
-      <Flex>
-        <VStack>
+      <Grid templateRows='repeat(2, 1fr)' templateColumns='repeat(6, 1fr)'>
+        <GridItem>
           <Image
             src={data.images.jpg.image_url}
             alt={data.title}
             height={300}
             width={225}
           />
-        </VStack>
-        <VStack
-          w='full'
-          h='full'
-          p={10}
-          spacing={10}
-          alignItems='flex-start'
-          bg='gray.50'
-        >
-          <Heading>{data.title}</Heading>
-          <p>Synopsis: {data.synopsis}</p>
-          <div>
-            Genres:
-            {data.genres.map((genre) => (
-              <div key={genre.mal_id}>{genre.name}</div>
-            ))}
-          </div>
-          <p>Aired: {data.aired.string}</p>
-          <p>Episodes: {data.episodes}</p>
-        </VStack>
-      </Flex>
+        </GridItem>
+        <GridItem colSpan={5} ml={6}>
+          <Heading pb={6}>{data.title}</Heading>
+          {data.synopsis}
+        </GridItem>
+        <GridItem mt={4}>
+          <Heading size='sm'>Genres:</Heading>
+          {data.genres.map((genre) => (
+            <div key={genre.mal_id}>{genre.name}</div>
+          ))}
+          <Heading size='sm' pt={2}>
+            Aired:
+          </Heading>
+          {data.aired.string}
+          <Heading size='sm' pt={2}>
+            Episodes
+          </Heading>
+          {data.episodes}
+        </GridItem>
+        <GridItem colSpan={5} ml={6} mt={4}>
+          reviews component should go in this grid
+        </GridItem>
+      </Grid>
     </Container>
   )
 }

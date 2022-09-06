@@ -6,6 +6,10 @@ const theme = extendTheme({
       50: '#23252b',
       900: '#000000',
     },
+    white: {
+      50: '#edf1f5',
+      900: '#ffffff',
+    },
   },
 })
 
