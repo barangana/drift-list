@@ -1,4 +1,4 @@
-export type MultipleAnimes = Array<{
+export type MultipleMangas = Array<{
   mal_id: number
   title: string
   images: {
@@ -8,7 +8,7 @@ export type MultipleAnimes = Array<{
   }
 }>
 
-export type SingleAnime = {
+export type SingleManga = {
   title: string
   synopsis: string
   episodes: number

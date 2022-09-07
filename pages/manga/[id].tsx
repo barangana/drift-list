@@ -3,12 +3,12 @@ import { Container, Grid, GridItem, Heading } from '@chakra-ui/react'
 import { SingleAnime } from '../../utils/types'
 import Image from 'next/image'
 
-interface AnimeProps {
-  anime: { data: SingleAnime }
+interface MangaProps {
+  manga: { data: SingleAnime }
 }
 
-const Anime: NextPage<AnimeProps> = ({ anime }) => {
-  const { data } = anime
+const Manga: NextPage<MangaProps> = ({ manga }) => {
+  const { data } = manga
   return (
     <Container maxW='container.xl' p={0}>
       <Grid templateRows='repeat(2, 1fr)' templateColumns='repeat(6, 1fr)'>
@@ -29,14 +29,6 @@ const Anime: NextPage<AnimeProps> = ({ anime }) => {
           {data.genres.map((genre) => (
             <div key={genre.mal_id}>{genre.name}</div>
           ))}
-          <Heading size='sm' pt={2}>
-            Aired:
-          </Heading>
-          {data.aired.string}
-          <Heading size='sm' pt={2}>
-            Episodes
-          </Heading>
-          {data.episodes}
         </GridItem>
         <GridItem colSpan={5} ml={6} mt={4}>
           reviews component should go in this grid
@@ -49,17 +41,17 @@ const Anime: NextPage<AnimeProps> = ({ anime }) => {
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { id } = context.query
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_API_URL}/anime/${id}/full`
+    `${process.env.NEXT_PUBLIC_BASE_API_URL}/manga/${id}/full`
   )
-  const anime = await response.json()
+  const manga = await response.json()
 
-  if (anime.status === 404) {
+  if (manga.status === 404) {
     return { notFound: true }
   }
 
   return {
-    props: { anime },
+    props: { manga },
   }
 }
 
-export default Anime
+export default Manga

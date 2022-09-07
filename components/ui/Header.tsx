@@ -24,6 +24,7 @@ export const Header: React.FC = () => {
         <ItemLink href='/'>Home</ItemLink>
         <ItemLink href='/anime/top-animes'>Top Animes</ItemLink>
         <ItemLink href='/manga/top-mangas'>Top Mangas</ItemLink>
+        <ItemLink href='/about'>About</ItemLink>
       </Stack>
     </Box>
   )
