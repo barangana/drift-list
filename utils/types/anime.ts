@@ -24,7 +24,7 @@ export type SingleAnime = {
   ]
 }
 
-export type TopAnimes = Array<{
+export type MultipleAnimes = Array<{
   mal_id: number
   title: string
   images: {

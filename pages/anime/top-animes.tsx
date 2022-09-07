@@ -1,10 +1,10 @@
 import { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
 import AllLists from '../../components/AllLists'
-import { TopAnimes } from '../../utils/types'
+import { MultipleAnimes } from '../../utils/types'
 
 interface TopAnimesProps {
-  tops: { data: TopAnimes }
+  tops: { data: MultipleAnimes }
 }
 
 const TopAnimes: NextPage<TopAnimesProps> = ({ tops }) => {
