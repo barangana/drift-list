@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
 import AllLists from '../../components/AllLists'
+import { Layout } from '../../components/layouts'
 import { Formats, MultipleAnimes } from '../../utils/types'
 
 interface TopAnimesProps {
@@ -11,9 +12,9 @@ interface TopAnimesProps {
 const TopAnimes: NextPage<TopAnimesProps> = ({ tops }) => {
   const { data } = tops
   return (
-    <div>
+    <Layout title='Top Animes'>
       <AllLists data={data} type={Formats.Anime} />
-    </div>
+    </Layout>
   )
 }
 

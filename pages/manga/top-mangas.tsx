@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
 import AllLists from '../../components/AllLists'
+import { Layout } from '../../components/layouts'
 import { Formats, MultipleMangas } from '../../utils/types'
 
 interface TopMangaProps {
@@ -8,12 +9,12 @@ interface TopMangaProps {
   format: Formats
 }
 
-const TopAnimes: NextPage<TopMangaProps> = ({ tops }) => {
+const TopMangas: NextPage<TopMangaProps> = ({ tops }) => {
   const { data } = tops
   return (
-    <div>
+    <Layout title='Top Mangas'>
       <AllLists data={data} type={Formats.Manga} />
-    </div>
+    </Layout>
   )
 }
 
@@ -27,4 +28,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default TopAnimes
+export default TopMangas
