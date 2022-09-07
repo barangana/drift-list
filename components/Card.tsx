@@ -11,7 +11,7 @@ interface CardProps {
   type: Formats
 }
 
-const Card: React.FC<CardProps> = ({ title, image_url, id, type }) => {
+export const Card: React.FC<CardProps> = ({ title, image_url, id, type }) => {
   return (
     <Box p={6}>
       <NextLink href={`/${type}/${id}`} passHref>

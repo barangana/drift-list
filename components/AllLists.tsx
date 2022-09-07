@@ -1,7 +1,7 @@
 import { Container, SimpleGrid } from '@chakra-ui/react'
 import React from 'react'
 import { Formats, MultipleAnimes, MultipleMangas } from '../utils/types'
-import Card from './Card'
+import { Card } from './'
 
 interface AllListsProps {
   data: MultipleAnimes | MultipleMangas

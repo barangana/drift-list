@@ -2,6 +2,7 @@ import { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
 import AllLists from '../../components/AllLists'
 import { Layout } from '../../components/layouts'
+import PageHeading from '../../components/ui/PageHeading'
 import { Formats, MultipleMangas } from '../../utils/types'
 
 interface TopMangaProps {
@@ -13,6 +14,7 @@ const TopMangas: NextPage<TopMangaProps> = ({ tops }) => {
   const { data } = tops
   return (
     <Layout title='Top Mangas'>
+      <PageHeading title='Top Mangas' />
       <AllLists data={data} type={Formats.Manga} />
     </Layout>
   )
