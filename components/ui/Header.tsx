@@ -19,7 +19,7 @@ const ItemLink: React.FC<ItemLinkProps> = ({ href, children }) => {
 
 export const Header: React.FC = () => {
   return (
-    <Box w='100%' as='nav' bg='black.50'>
+    <Box w='100%' as='nav' bg='black.50' p={6}>
       <Stack direction={{ base: 'column', sm: 'row' }}>
         <ItemLink href='/'>Home</ItemLink>
         <ItemLink href='/anime/top-animes'>Top Animes</ItemLink>

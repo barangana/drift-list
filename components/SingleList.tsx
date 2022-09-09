@@ -1,4 +1,4 @@
-import { Container, SimpleGrid } from '@chakra-ui/react'
+import { Container, Divider, Heading, SimpleGrid } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { Formats, MultipleAnimes } from '../utils/types'
 import { Card } from './'
@@ -23,14 +23,15 @@ export const SingleList: React.FC<SingleListProps> = ({
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data)
         setInfo(data.data)
       })
   }, [])
 
   return info ? (
-    <Container maxW='container.xl'>
-      {section}
+    <Container maxW='container.xl' mt={6}>
+      <Heading as='h3' size='md' pl={6} pb={4}>
+        {section}
+      </Heading>
       <SimpleGrid columns={[1, 3, 6]}>
         {info.map((single) => (
           <Card
@@ -42,6 +43,7 @@ export const SingleList: React.FC<SingleListProps> = ({
           />
         ))}
       </SimpleGrid>
+      <Divider mt={4} />
     </Container>
   ) : null
 }
