@@ -18,11 +18,7 @@ const AnimeImage = chakra(Image, {
 
 export const Card: React.FC<CardProps> = ({ title, image_url, id, type }) => {
   return (
-    <Box
-      p={6}
-      _hover={{ textColor: 'branding.50', bg: 'white.50' }}
-      rounded='md'
-    >
+    <Box p={6} _hover={{ textColor: 'black.100', bg: 'white.50' }} rounded='md'>
       <NextLink href={`/${type}/${id}`} passHref>
         <Link>
           <AnimeImage

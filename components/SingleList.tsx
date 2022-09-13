@@ -3,9 +3,6 @@ import { useEffect, useState } from 'react'
 import { Formats, MultipleAnimes } from '../utils/types'
 import { Card } from './'
 
-//TODO: Fix issue where after first page load it is fine but not on refresh.
-// Add async await into useEffect when fetching data from the api.
-
 interface SingleListProps {
   url: string
   type: Formats
@@ -20,11 +17,14 @@ export const SingleList: React.FC<SingleListProps> = ({
   const [info, setInfo] = useState<MultipleAnimes>()
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setInfo(data.data)
-      })
+    const fetchData = async () => {
+      await fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          setInfo(data.data)
+        })
+    }
+    fetchData()
   }, [])
 
   return info ? (
