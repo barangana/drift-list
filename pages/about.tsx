@@ -7,10 +7,10 @@ import text from '../utils/data/text.json'
 const About: NextPage = () => {
   return (
     <Layout title='About' description={text.description}>
-      <Container maxW='container.xl'>
+      <Container maxW='container.xl' h='calc(100vh - 248px)'>
         <Box bg='white.50' p={16}>
           <Heading size='md' pb={6}>
-            About Insert Name Here
+            {text.branding}
           </Heading>
           <Box>{text.description}</Box>
           <Text>{text.about}</Text>

@@ -1,6 +1,6 @@
 {
-  "description": "Insert name here is currently in development. It is used to search information about animes, mangas and its other namings.",
-  "branding": "App name",
-  "about": "Insert name here is created with NextJS, TypeScript, ChakraUI and consumes the unofficial MyAnimeList API, JikanAPI. Future iterations will have Prisma and PostgreSQL.",
+  "description": "Drift List is currently in development. It is used to search information about animes, mangas and its other namings.",
+  "branding": "Drift List",
+  "about": "Drift List is created with NextJS, TypeScript, ChakraUI and consumes the unofficial MyAnimeList API, JikanAPI. Future iterations will have Prisma and PostgreSQL and allow user creation with their own lists.",
   "author": "Adriel Barangan"
 }

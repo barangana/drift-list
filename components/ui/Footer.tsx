@@ -11,6 +11,9 @@ export const Footer: React.FC = () => {
           <Link>Jikan API</Link>
         </NextLink>
       </Text>
+      <Text align='center' p={2} color='white.50'>
+        © {new Date().getFullYear()} — Drift List
+      </Text>
     </Flex>
   )
 }

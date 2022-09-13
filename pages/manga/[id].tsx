@@ -1,10 +1,10 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { SingleManga } from '../../utils/types'
+import { SingleAnime, SingleManga } from '../../utils/types'
 import { Layout } from '../../components/layouts'
 import { MainContent } from '../../components'
 
 interface MangaProps {
-  manga: { data: SingleManga }
+  manga: { data: SingleManga & SingleAnime }
 }
 
 const Manga: NextPage<MangaProps> = ({ manga }) => {
