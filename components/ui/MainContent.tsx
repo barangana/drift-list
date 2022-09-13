@@ -11,7 +11,7 @@ import React from 'react'
 import { SingleAnime, SingleManga } from '../../utils/types'
 
 interface MainContentProps {
-  data: SingleAnime | SingleManga
+  data: SingleAnime & SingleManga
 }
 
 const ChakraImage = chakra(Image, {
@@ -40,6 +40,25 @@ export const MainContent: React.FC<MainContentProps> = ({ data }) => {
           {data.genres.map((genre) => (
             <Box key={genre.mal_id}>{genre.name}</Box>
           ))}
+          {data.aired && data.episodes ? (
+            <>
+              <Heading size='sm' pt={2}>
+                Aired
+              </Heading>
+              {data.aired.string}
+              <Heading size='sm' pt={2}>
+                Episodes
+              </Heading>
+              {data.episodes}
+            </>
+          ) : (
+            <>
+              <Heading size='sm' pt={2}>
+                Chapters
+              </Heading>
+              {data.chapters ? data.chapters : data.status}
+            </>
+          )}
         </GridItem>
         <GridItem colSpan={5} ml={6} mt={4}>
           {/* reviews component should go in this grid */}

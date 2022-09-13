@@ -23,9 +23,7 @@ export type SingleManga = {
     }
   }
   status: string
-  aired: {
-    string: string
-  }
+  chapters: number
   genres: [
     {
       mal_id: number
