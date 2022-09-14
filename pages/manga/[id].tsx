@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { SingleAnime, SingleManga } from '../../utils/types'
+import { Formats, SingleAnime, SingleManga } from '../../utils/types'
 import { Layout } from '../../components/layouts'
 import { MainContent } from '../../components'
 
@@ -19,7 +19,7 @@ const Manga: NextPage<MangaProps> = ({ manga }) => {
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { id } = context.query
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_API_URL}/manga/${id}/full`
+    `${process.env.NEXT_PUBLIC_BASE_API_URL}/${Formats.Manga}/${id}/full`
   )
   const manga = await response.json()
 
