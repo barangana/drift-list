@@ -1,6 +1,5 @@
-import { Box, Button, Container, Flex, Heading, Text } from '@chakra-ui/react'
+import { Flex, Heading } from '@chakra-ui/react'
 import { NextPage } from 'next'
-import Link from 'next/link'
 import React from 'react'
 import { Layout } from '../components/layouts'
 import text from '../utils/data/text.json'
@@ -14,8 +13,8 @@ const ErrorPage: NextPage = () => {
         justify='center'
         h='calc(100vh - 288px)'
       >
-        <Heading p={2}>Error 404</Heading>
-        <Heading size='md'>Page not found</Heading>
+        <Heading p={2}>{text.title_404}</Heading>
+        <Heading size='md'>{text.text_error_404}</Heading>
       </Flex>
     </Layout>
   )
