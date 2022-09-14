@@ -1,4 +1,4 @@
-import { Box, Container, Heading } from '@chakra-ui/react'
+import { Box, Container, Flex, Heading } from '@chakra-ui/react'
 import React from 'react'
 
 interface PageHeadingProps {
@@ -7,9 +7,11 @@ interface PageHeadingProps {
 
 const PageHeading: React.FC<PageHeadingProps> = ({ title }) => {
   return (
-    <Box bg='white' w='100%' p={16}>
+    <Box w='100%' pt={16} pb={16} pl={{ sm: 0, lg: 8 }}>
       <Container maxW='container.xl'>
-        <Heading pl={4}>{title}</Heading>
+        <Flex justify={{ sm: 'center', md: 'center', lg: 'flex-start' }}>
+          <Heading>{title}</Heading>
+        </Flex>
       </Container>
     </Box>
   )

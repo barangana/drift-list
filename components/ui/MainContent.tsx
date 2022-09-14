@@ -2,9 +2,9 @@ import {
   Box,
   chakra,
   Container,
-  Grid,
-  GridItem,
+  Flex,
   Heading,
+  SimpleGrid,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import React from 'react'
@@ -20,9 +20,18 @@ const ChakraImage = chakra(Image, {
 
 export const MainContent: React.FC<MainContentProps> = ({ data }) => {
   return (
-    <Container maxW='container.xl' p={0} h='calc(100vh - 295px)' mt={24}>
-      <Grid templateRows='repeat(2, 1fr)' templateColumns='repeat(6, 1fr)'>
-        <GridItem>
+    <Container
+      maxW='container.xl'
+      p={0}
+      mt={{ sm: 12, md: 24 }}
+      mb={{ sm: 12, md: 24 }}
+    >
+      <SimpleGrid
+        columns={{ sm: 1, md: 2 }}
+        spacingY={4}
+        ml={{ md: 32, lg: 0 }}
+      >
+        <Flex justify={{ sm: 'center', md: 'flex-start' }}>
           <ChakraImage
             src={data.images.jpg.image_url}
             alt={data.title}
@@ -30,12 +39,16 @@ export const MainContent: React.FC<MainContentProps> = ({ data }) => {
             height={300}
             rounded='md'
           />
-        </GridItem>
-        <GridItem colSpan={5} ml={6}>
+        </Flex>
+        <Box
+          position={{ sm: 'static', md: 'relative' }}
+          right={{ md: 36, lg: 72 }}
+          width={{ lg: '1024px' }}
+        >
           <Heading pb={6}>{data.title}</Heading>
           {data.synopsis}
-        </GridItem>
-        <GridItem mt={4}>
+        </Box>
+        <Box>
           <Heading size='sm'>Genres:</Heading>
           {data.genres.map((genre) => (
             <Box key={genre.mal_id}>{genre.name}</Box>
@@ -59,11 +72,16 @@ export const MainContent: React.FC<MainContentProps> = ({ data }) => {
               {data.chapters ? data.chapters : data.status}
             </>
           )}
-        </GridItem>
-        <GridItem colSpan={5} ml={6} mt={4}>
-          {/* reviews component should go in this grid */}
-        </GridItem>
-      </Grid>
+        </Box>
+        <Box
+          bg='white.50'
+          position={{ sm: 'static', md: 'relative' }}
+          right={{ md: 36, lg: 72 }}
+          width={{ lg: '1024px' }}
+        >
+          Work In Progress
+        </Box>
+      </SimpleGrid>
     </Container>
   )
 }
