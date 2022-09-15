@@ -21,7 +21,7 @@ const About: NextPage = () => {
           <Text>
             Project Repository:{' '}
             <Link href='https://github.com/barangana/anime-site'>
-              Insert name here
+              {text.branding}
             </Link>
           </Text>
         </Box>

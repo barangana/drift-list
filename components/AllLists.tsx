@@ -8,7 +8,7 @@ interface AllListsProps {
   type: Formats
 }
 
-const AllLists: React.FC<AllListsProps> = ({ data, type }) => {
+export const AllLists: React.FC<AllListsProps> = ({ data, type }) => {
   return (
     <Container maxW='container.xl'>
       <SimpleGrid columns={[1, 3, 5]} alignItems='center'>
@@ -25,5 +25,3 @@ const AllLists: React.FC<AllListsProps> = ({ data, type }) => {
     </Container>
   )
 }
-
-export default AllLists

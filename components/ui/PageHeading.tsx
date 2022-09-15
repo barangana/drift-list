@@ -3,9 +3,10 @@ import React from 'react'
 
 interface PageHeadingProps {
   title: string
+  pre_title?: string
 }
 
-const PageHeading: React.FC<PageHeadingProps> = ({ title }) => {
+export const PageHeading: React.FC<PageHeadingProps> = ({ title }) => {
   return (
     <Box w='100%' pt={16} pb={16} pl={{ sm: 0, lg: 8 }}>
       <Container maxW='container.xl'>
@@ -16,5 +17,3 @@ const PageHeading: React.FC<PageHeadingProps> = ({ title }) => {
     </Box>
   )
 }
-
-export default PageHeading

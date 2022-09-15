@@ -34,6 +34,7 @@ export const Header: React.FC = () => {
         <ItemLink href='/'>Home</ItemLink>
         <ItemLink href='/anime/top-animes'>Top Animes</ItemLink>
         <ItemLink href='/manga/top-mangas'>Top Mangas</ItemLink>
+        <ItemLink href='/search'>Search</ItemLink>
         <ItemLink href='/about'>About</ItemLink>
       </Stack>
       <Menu isLazy>
@@ -58,6 +59,9 @@ export const Header: React.FC = () => {
           </ItemLink>
           <ItemLink href='/manga/top-mangas'>
             <MenuItem>Top Mangas</MenuItem>
+          </ItemLink>
+          <ItemLink href='/search'>
+            <MenuItem>Search</MenuItem>
           </ItemLink>
           <ItemLink href='/about'>
             <MenuItem>About</MenuItem>

@@ -1,10 +1,10 @@
 import { Button, Container, HStack, Input, Select } from '@chakra-ui/react'
-import { Genres, Formats } from '../../utils/data'
+import { Genres, AnimeFormats } from '../../utils/data'
 import { useState } from 'react'
 import { SearchAnime } from '../../utils/data/search'
 
-//TODO: Fix Genre
-const SearchBar: React.FC = () => {
+//TODO: Figure out in the future how to have the search bar function on each page
+export const SearchBar: React.FC = () => {
   const [name, setName] = useState<string>('')
   const [genre, setGenre] = useState<string>('')
   const [format, setFormat] = useState<string>('')
@@ -19,7 +19,7 @@ const SearchBar: React.FC = () => {
           ))}
         </Select>
         <Select placeholder='Any' onChange={(e) => setFormat(e.target.value)}>
-          {Formats.map((format) => (
+          {AnimeFormats.map((format) => (
             <option key={format.id}>{format.name}</option>
           ))}
         </Select>
@@ -34,5 +34,3 @@ const SearchBar: React.FC = () => {
     </Container>
   )
 }
-
-export default SearchBar

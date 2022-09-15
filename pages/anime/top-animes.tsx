@@ -1,8 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
-import AllLists from '../../components/AllLists'
+import { AllLists, PageHeading } from '../../components'
 import { Layout } from '../../components/layouts'
-import PageHeading from '../../components/ui/PageHeading'
 import { Formats, MultipleAnimes } from '../../utils/types'
 
 interface TopAnimesProps {

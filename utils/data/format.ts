@@ -1,9 +1,9 @@
-interface FormatTypes {
+interface AnimeFormatTypes {
   id: number
   name: string
 }
 
-export const Formats: FormatTypes[] = [
+export const AnimeFormats: AnimeFormatTypes[] = [
   { id: 1, name: 'TV' },
   { id: 2, name: 'Movie' },
   { id: 3, name: 'OVA' },

@@ -4,5 +4,7 @@
   "about": "Drift List is created with NextJS, TypeScript, ChakraUI and consumes the unofficial MyAnimeList API, JikanAPI. Future iterations will have Prisma and PostgreSQL and allow user creation with their own lists.",
   "author": "Adriel Barangan",
   "title_404": "Error 404",
-  "text_error_404": "Page not found"
+  "text_error_404": "Page not found",
+  "search_error": "Anime not found",
+  "begin_search": "Begin search by searching an anime by its name or by its type"
 }
