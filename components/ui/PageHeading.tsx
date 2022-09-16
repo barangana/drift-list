@@ -8,9 +8,9 @@ interface PageHeadingProps {
 
 export const PageHeading: React.FC<PageHeadingProps> = ({ title }) => {
   return (
-    <Box w='100%' pt={16} pb={16} pl={{ sm: 0, lg: 8 }}>
+    <Box w='100%' mt={6} mb={6} pl={[0, 0, 4, 8]}>
       <Container maxW='container.xl'>
-        <Flex justify={{ sm: 'center', md: 'center', lg: 'flex-start' }}>
+        <Flex justify={['center', 'center', 'flex-start']}>
           <Heading>{title}</Heading>
         </Flex>
       </Container>

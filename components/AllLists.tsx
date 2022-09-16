@@ -11,7 +11,7 @@ interface AllListsProps {
 export const AllLists: React.FC<AllListsProps> = ({ data, type }) => {
   return (
     <Container maxW='container.xl'>
-      <SimpleGrid columns={[1, 3, 5]} alignItems='center'>
+      <SimpleGrid columns={[2, 3, 5]} alignItems='center'>
         {data.map((single) => (
           <Card
             key={single.mal_id}

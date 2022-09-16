@@ -32,7 +32,7 @@ export const SingleList: React.FC<SingleListProps> = ({
       <Heading as='h3' size='md' pl={6} pb={4}>
         {section}
       </Heading>
-      <SimpleGrid columns={[1, 3, 6]}>
+      <SimpleGrid columns={[2, 3, 6]}>
         {info.map((single) => (
           <Card
             key={single.mal_id}

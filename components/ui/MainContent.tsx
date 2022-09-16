@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   SimpleGrid,
+  Text,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import React from 'react'
@@ -31,7 +32,7 @@ export const MainContent: React.FC<MainContentProps> = ({ data }) => {
         spacingY={4}
         ml={{ md: 32, lg: 0 }}
       >
-        <Flex justify={{ sm: 'center', md: 'flex-start' }}>
+        <Flex justify={['center', 'center', 'flex-start', 'center']}>
           <ChakraImage
             src={data.images.jpg.image_url}
             alt={data.title}
@@ -42,18 +43,19 @@ export const MainContent: React.FC<MainContentProps> = ({ data }) => {
         </Flex>
         <Box
           position={{ sm: 'static', md: 'relative' }}
-          right={{ md: 36, lg: 72 }}
-          width={{ lg: '1024px' }}
+          right={{ md: 20 }}
+          ml={4}
+          mr={4}
         >
           <Heading pb={6}>{data.title}</Heading>
-          {data.synopsis}
+          <Text>{data.synopsis}</Text>
         </Box>
-        <Box>
+        <Flex ml={4} direction='column' align='center'>
           <Heading size='sm'>Genres:</Heading>
           {data.genres.map((genre) => (
             <Box key={genre.mal_id}>{genre.name}</Box>
           ))}
-          {data.aired && data.episodes ? (
+          {data.status.includes('air') || data.status.includes('Air') ? (
             <>
               <Heading size='sm' pt={2}>
                 Aired
@@ -72,12 +74,13 @@ export const MainContent: React.FC<MainContentProps> = ({ data }) => {
               {data.chapters ? data.chapters : data.status}
             </>
           )}
-        </Box>
+        </Flex>
         <Box
+          ml={4}
+          mr={4}
           bg='white.50'
           position={{ sm: 'static', md: 'relative' }}
-          right={{ md: 36, lg: 72 }}
-          width={{ lg: '1024px' }}
+          right={{ md: 20 }}
         >
           Work In Progress
         </Box>

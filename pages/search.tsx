@@ -3,6 +3,7 @@ import {
   Container,
   Heading,
   HStack,
+  IconButton,
   Input,
   Select,
 } from '@chakra-ui/react'
@@ -10,15 +11,15 @@ import { NextPage } from 'next'
 import { useState } from 'react'
 import { AllLists } from '../components'
 import { Layout } from '../components/layouts'
-import { PageHeading } from '../components'
 import { AnimeFormats, Genres } from '../utils/data'
 import text from '../utils/data/text.json'
 import { Formats, MultipleAnimes } from '../utils/types'
+import { SearchIcon } from '@chakra-ui/icons'
 
 // TODO: Fix Genres, Fix footer when there is no search results
 const Search: NextPage = () => {
   const [name, setName] = useState<string>('')
-  const [genre, setGenre] = useState<string>('')
+  // const [genre, setGenre] = useState<string>('')
   const [format, setFormat] = useState<string>('')
   const [data, setData] = useState<MultipleAnimes>([])
 
@@ -36,14 +37,14 @@ const Search: NextPage = () => {
       <Container maxW='container.xl'>
         <HStack>
           <Input placeholder='Name' onChange={(e) => setName(e.target.value)} />
-          <Select
+          {/* <Select
             placeholder='Genres'
             onChange={(e) => setGenre(e.target.value)}
           >
             {Genres.map((genre) => (
               <option key={genre.id}>{genre.name}</option>
             ))}
-          </Select>
+          </Select> */}
           <Select
             placeholder='Type'
             onChange={(e) => setFormat(e.target.value)}
@@ -52,9 +53,13 @@ const Search: NextPage = () => {
               <option key={format.id}>{format.name}</option>
             ))}
           </Select>
-          <Button size='md' p={6} onClick={() => searchAnime()}>
-            Search
-          </Button>
+          <IconButton
+            icon={<SearchIcon />}
+            size='md'
+            p={4}
+            onClick={() => searchAnime()}
+            aria-label='Search'
+          />
         </HStack>
         {data ? (
           <AllLists data={data} type={Formats.Anime} />
