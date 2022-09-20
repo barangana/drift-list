@@ -11,6 +11,7 @@ import {
   MenuItem,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import text from '../../utils/data/text.json'
 
 interface ItemLinkProps {
   href: string
@@ -31,7 +32,7 @@ export const Header: React.FC = () => {
   return (
     <Flex w='100%' as='nav' bg='black.50' p={6} mb={12}>
       <Stack direction='row' display={['none', 'flex']}>
-        <ItemLink href='/'>Home</ItemLink>
+        <ItemLink href='/'>{text.branding}</ItemLink>
         <ItemLink href='/anime/top-animes'>Top Animes</ItemLink>
         <ItemLink href='/manga/top-mangas'>Top Mangas</ItemLink>
         <ItemLink href='/search'>Search</ItemLink>
