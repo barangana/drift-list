@@ -21,9 +21,7 @@ interface ItemLinkProps {
 const ItemLink: React.FC<ItemLinkProps> = ({ href, children }) => {
   return (
     <NextLink href={href} passHref>
-      <Link p={2} color='white'>
-        {children}
-      </Link>
+      {children}
     </NextLink>
   )
 }

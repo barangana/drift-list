@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
       <Text align='center' p={2} color='white.50'>
         All data belong to{' '}
         <NextLink href='https://jikan.moe/' passHref>
-          <Link>Jikan API</Link>
+          Jikan API
         </NextLink>
       </Text>
       <Text align='center' p={2} color='white.50'>
